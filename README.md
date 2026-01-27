@@ -1,6 +1,6 @@
 <div align="center">
-<div style="width: 15%; text-align: center; margin:auto;">
-      <img style="width:60%" src="icon.png">
+<div style="width: 100%; text-align: center; margin:auto;">
+      <img style="width:15%" src="icon.png">
 </div>
 </div>
 
@@ -19,7 +19,7 @@ Discerning intensity nuances and multi-dimensional attributes in image-evoked em
 
 To bridge this gap, we introduce **EEmoDB**, the largest image-<u>e</u>voked <u>emo</u>tion understanding instruction <u>d</u>ataset, featuring five analysis dimensions and five task categories for fine-grained interpretation. Specifically, we compile $1.2M$ question-answering (QA) pairs (**EEmoDB-QA**) from $125k$ images via automated generation, alongside a $36k$ instruction set (**EEmoDB-Assess**) curated from $25k$ images for fine-grained assessment. 
 
-Furthermore, we propose **EEmo-Logic**, an **all-in-one** MLLM developed via instruction fine-tuning and task-customized Group Relative Preference Optimization (GRPO) with novel rewards. Extensive experiments demonstrate that **EEmo-Logic** achieves robust performance across in-domain and cross-domain benchmarks, excelling in QA and fine-grained attribute assessment. 
+Furthermore, we propose **EEmo-Logic**, an **all-in-one** MLLM developed via instruction fine-tuning and task-customized Group Relative Preference Optimization (GRPO) with novel rewards. Extensive experiments demonstrate that **EEmo-Logic** achieves robust performance across fundamental tasks and cross-domain benchmarks, excelling in QA and fine-grained attribute assessment. 
 
 ## 🔍 Qualitative Results
 
@@ -49,7 +49,9 @@ pip install -r requirements.txt
 
 ## 🚀 Inference
 
-### In-Domain Task
+To facilitate inference, we have refined the label format for the test datasets. You can directly use the JSON files from the [test data](test_data/) folder. For the images, please download them from the open-source version of the original dataset. We conduct testing on both fundamental tasks and cross-domain datasets. The specific procedure is as follows:
+
+### Fundamental Tasks
 
 Assuming you have already downloaded the [EEmo-Bench](https://github.com/workerred/EEmo-Bench) dataset, you can use the following command to obtain EEmo-Logic's responses for the **Perception**, **Ranking**, **Description**, and **Assessment** tasks.
 
@@ -69,7 +71,7 @@ python inference/evaluate_description.py  # Emotion description task
 python inference/evaluate_ranking.py  # Emotion ranking task with reasoning process
 python inference/evaluate_vad.py  # VAD assessment task with reasoning process
 ```
-### Cross-Domain Dataset
+### Cross-Domain Datasets
 1. Dominant Emotion Classification
 Once you have prepared the [Artphoto](https://www.imageemotion.org/) and [ArtEmis](https://github.com/optas/artemis) cross-domain datasets, you can use the following code to perform inference:
 
