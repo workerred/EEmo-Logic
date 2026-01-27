@@ -1,6 +1,13 @@
+<div align="center">
+<div style="width: 15%; text-align: center; margin:auto;">
+      <img style="width:60%" src="icon.png">
+</div>
+</div>
 
+<h1>
+EEmo-Logic: A Unified Dataset and Multi-Stage Framework for Image-Evoked Emotion Assessment
+</h1>
 
-# <img src="icon.png" style="height: 1em; vertical-align: middle;" /> EEmo-Logic: A Unified Dataset and Multi-Stage Framework for Image-Evoked Emotion Assessment
 
 <div align="center">
 <div style="width: 100%; text-align: center; margin:auto;">
