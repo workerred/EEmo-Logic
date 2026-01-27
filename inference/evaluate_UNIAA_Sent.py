@@ -45,9 +45,9 @@ def qwen_evaluate(img_path, prompt):
     return output_text[0]
 
 
-def load_data(input_path, output_path):
-    if os.path.exists(output_path):
-        with open(output_path, "r", encoding="utf-8") as f:
+def load_data(input_path, output_json):
+    if os.path.exists(output_json):
+        with open(output_json, "r", encoding="utf-8") as f:
             output_data = json.load(f)
     else:
         output_data = []
@@ -95,10 +95,10 @@ max_pixels = 1280*28*28
 processor = AutoProcessor.from_pretrained(model_dir, min_pixels=min_pixels, max_pixels=max_pixels)
 
 model_name = "EEmo-Logic"
-QA_path = "path/to/UNIAA/UNIAA_Sent.json"
-output_path = f"path/to/UNIAA/UNIAA_Sent({model_name}).json"
+input_json = "path/to/UNIAA/UNIAA_Sent.json"
+output_json = f"path/to/UNIAA/UNIAA_Sent({model_name}).json"
 
-input_data, output_data = load_data(QA_path, output_path)
+input_data, output_data = load_data(input_json, output_json)
 current_index = find_last_generate(output_data)
 image_folder = "path/to/UNIAA/images"
 
@@ -113,7 +113,7 @@ for index in range(current_index, len(input_data)):
     print(answer)
     output_item[f"response({model_name})"] = answer
     output_data.append(output_item)
-    with open(output_path, "w", encoding="utf-8") as f:
+    with open(output_json, "w", encoding="utf-8") as f:
         json.dump(output_data, f, ensure_ascii=False, indent=4)
     print("{} is done.".format(output_item["id"]))
 print(f"The evaluation of {model_name} has been completed.")

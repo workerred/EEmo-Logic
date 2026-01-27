@@ -95,10 +95,10 @@ max_pixels = 1280*28*28
 processor = AutoProcessor.from_pretrained(model_dir, min_pixels=min_pixels, max_pixels=max_pixels)
 
 model_name = "EEmo-Logic"
-Ebench_en_path = "path/to/EEmo-Bench(pair).json"
-Ebench_output_path = f"path/to/EEmo-Bench({model_name}-pair).json"
+json_file = "path/to/EEmo-Bench(pair).json"
+output_file = f"path/to/EEmo-Bench({model_name}-pair).json"
 
-input_data, output_data = load_data(Ebench_en_path, Ebench_output_path)
+input_data, output_data = load_data(json_file, output_file)
 current_index = find_last_generate(output_data)
 image_folder = "path/to/EEmo-bench/images"
 
@@ -122,7 +122,7 @@ for index in range(current_index, len(input_data)):
     output_item[f"{model_name}(choose)"] = c_answer
 
     output_data.append(output_item)
-    with open(Ebench_output_path, "w", encoding="utf-8") as f:
+    with open(output_file, "w", encoding="utf-8") as f:
         json.dump(output_data, f, ensure_ascii=False, indent=4)
     print("Image pair {} is done.".format(index+1))
 print("The evaluation has been completed.")

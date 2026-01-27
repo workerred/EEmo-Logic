@@ -63,10 +63,10 @@ max_pixels = 1280*28*28
 processor = AutoProcessor.from_pretrained(model_dir, min_pixels=min_pixels, max_pixels=max_pixels)
 
 model_name = "EEmo-Logic"
-folder_path = r"path/to/EAPD/images"
-save_name = f"path/to/EAPD/test_AesE({model_name}).json"
-bench_path = "path/to/EAPD/AesBench_AesE.json"
-f = open(bench_path, encoding='utf-8')
+image_folder = r"path/to/EAPD/images"
+output_json = f"path/to/EAPD/test_AesE({model_name}).json"
+input_json = "path/to/EAPD/AesBench_AesE.json"
+f = open(input_json, encoding='utf-8')
 data=json.load(f)
 f.close()
 answers={}
@@ -78,7 +78,7 @@ start_time = time.time()
 for imgName, label in data.items():
     print()
     print(imgName)
-    img_path = os.path.join(folder_path, imgName)
+    img_path = os.path.join(image_folder, imgName)
 
     AesE_data = label['AesE_data']
     AesE_prompt = AesE_data['Question'] + " Choose one from the following options:\n" + AesE_data['Options'] + "\nYou should output a correct option without explanation."
@@ -91,7 +91,7 @@ for imgName, label in data.items():
     avg_time = (time.time() - start_time) / img_num
     need_time = (avg_time * (all_num - img_num)) / 3600
     answers_dict = json.dumps(answers, indent=4)
-    with open(save_name, 'w') as outfile:
+    with open(output_json, 'w') as outfile:
         outfile.write(answers_dict)
     print(
         "AesE--{}/{} finished. Using time (s):{:.1f}. Average image time (s):{:.1f}. Need time (h):{:.1f}.".format(

@@ -47,12 +47,12 @@ def qwen_evaluate(img_path, prompt):
     return output_text[0]
 
 
-def load_data(input_path, output_path):
+def load_data(json_file, output_path):
     if os.path.exists(output_path):
         with open(output_path, "r", encoding="utf-8") as f:
             output_data = json.load(f)
     else:
-        with open(input_path, "r", encoding="utf-8") as f:
+        with open(json_file, "r", encoding="utf-8") as f:
             output_data = json.load(f)
     return output_data
 
@@ -95,10 +95,10 @@ min_pixels = 256 * 28 * 28
 max_pixels = 1280 * 28 * 28
 processor = AutoProcessor.from_pretrained(model_dir, min_pixels=min_pixels, max_pixels=max_pixels)
 
-input_path = "path/to/EEmo-Bench(single).json"
-Ebench_path = f"path/to/EEmo-Bench({model_name}-single).json"
+json_file = "path/to/EEmo-Bench(single).json"
+output_file = f"path/to/EEmo-Bench({model_name}-single).json"
 
-output_data = load_data(input_path, Ebench_path)
+output_data = load_data(json_file, output_file)
 current_index = find_last_generate(output_data)
 image_folder = "path/to/EEmo-bench/images"
 
@@ -123,7 +123,7 @@ for index in range(current_index, len(output_data)):
     output_item["predict_emotion_list"] = extract_answer
 
     output_data[index] = output_item
-    with open(Ebench_path, "w", encoding="utf-8") as f:
+    with open(output_file, "w", encoding="utf-8") as f:
         json.dump(output_data, f, ensure_ascii=False, indent=4)
     print("{} {} is done.".format(model_name, output_item["image_name"]))
 print(f"{model_name} ranking prediction has been completed.")

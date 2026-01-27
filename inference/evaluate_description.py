@@ -120,10 +120,10 @@ max_pixels = 1280 * 28 * 28
 processor = AutoProcessor.from_pretrained(model_dir, min_pixels=min_pixels, max_pixels=max_pixels)
 
 model_name = "EEmo-Logic"
-Ebench_en_path = "path/to/EEmo-Bench(description_single).json"
-Ebench_qwen_path = f"path/to/EEmo-Bench({model_name}-description_single).json"
+json_file = "path/to/EEmo-Bench(description_single).json"
+output_file = f"path/to/EEmo-Bench({model_name}-description_single).json"
 
-input_data, output_data = load_data(Ebench_en_path, Ebench_qwen_path)
+input_data, output_data = load_data(json_file, output_file)
 current_index = find_last_generate(output_data)
 image_folder = "path/to/EEmo-bench/images"
 
@@ -142,16 +142,16 @@ for index in range(current_index, len(input_data)):
     answer = qwen_evaluate_single(img_path, prompt)
     output_item[f"{model_name}(open-ended)"] = answer
     output_data.append(output_item)
-    with open(Ebench_qwen_path, "w", encoding="utf-8") as f:
+    with open(output_file, "w", encoding="utf-8") as f:
         json.dump(output_data, f, ensure_ascii=False, indent=4)
     print("Index {} is done.".format(index + 1))
 print(f"{model_name}: The evaluation of single images description task has been completed.")
 
 
-Ebench_en_path = "path/to/EEmo-Bench(description_pair).json"
-Ebench_output_path = f"path/to/EEmo-Bench({model_name}-description_pair).json"
+json_file = "path/to/EEmo-Bench(description_pair).json"
+output_file = f"path/to/EEmo-Bench({model_name}-description_pair).json"
 
-input_data, output_data = load_data(Ebench_en_path, Ebench_output_path)
+input_data, output_data = load_data(json_file, output_file)
 current_index = find_last_generate(output_data)
 image_folder = "path/to/EEmo-bench/images"
 for index in range(current_index, len(input_data)):
@@ -172,7 +172,7 @@ for index in range(current_index, len(input_data)):
     answer = qwen_evaluate_pair(img_path_1, img_path_2, prompt)
     output_item[f"{model_name}(open-ended)"] = answer
     output_data.append(output_item)
-    with open(Ebench_output_path, "w", encoding="utf-8") as f:
+    with open(output_file, "w", encoding="utf-8") as f:
         json.dump(output_data, f, ensure_ascii=False, indent=4)
     print("Index {} is done.".format(index + 1))
 print(f"{model_name}: The evaluation of image pairs description task has been completed.")
