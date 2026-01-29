@@ -5,7 +5,7 @@
 </div>
 
 <h1>
-EEmo-Logic: A Unified Dataset and Multi-Stage Framework for Image-Evoked Emotion Assessment
+EEmo-Logic: A Unified Dataset and Multi-Stage Framework for Comprehensive Image-Evoked Emotion Assessment
 </h1>
 
 
