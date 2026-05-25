@@ -1,6 +1,6 @@
 <div align="center">
 <div style="width: 100%; text-align: center; margin:auto;">
-      <img style="width:5%" src="icon.png">
+      <img style="width:20%" src="icon.png">
 </div>
 </div>
 
@@ -11,7 +11,7 @@ EEmo-Logic: A Unified Dataset and Multi-Stage Framework for Comprehensive Image-
 
 <div align="center">
 <div style="width: 100%; text-align: center; margin:auto;">
-      <img style="width:30%" src="Spotlight.png">
+      <img style="width:50%" src="Spotlight.png">
 </div>
 </div>
 
@@ -25,7 +25,7 @@ Furthermore, we propose **EEmo-Logic**, an **all-in-one** multimodal large langu
 
 <div align="center">
 <div style="width: 100%; text-align: center; margin:auto;">
-      <img style="width:50%" src="Qualitative results.png">
+      <img style="width:100%" src="Qualitative results.png">
 </div>
 </div>
 
