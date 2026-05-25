@@ -33,7 +33,7 @@ Furthermore, we propose **EEmo-Logic**, an **all-in-one** multimodal large langu
 
 - [ ] Release the training script
 - [ ] Release the EEmo-Logic checkpoint
-- [ ] Release the EEmoDB dataset
+- [x] Release the EEmoDB dataset
 - [x] Release the inference script
 
 ## 🛠️ Installation
@@ -46,6 +46,39 @@ conda activate eemo-logic
 # install requirements
 pip install -r requirements.txt
 ```
+
+## 📖 EEmoDB
+
+EEmoDB comprises two subsets: **EEmoDB-QA**, containing 1.2M instructions generated from 128K single and 355K paired images to cover **perception**, **ranking**, and **description** tasks; and **EEmoDB-Assess**, a curated set of 36K instructions from 25K images, targeting fine-grained emotional assessment.
+
+<div align="center">
+<div style="width: 100%; text-align: center; margin:auto;">
+      <img style="width:100%" src="Dataset comparison.png">
+</div>
+</div>
+
+We provide the label annotations for the EEmoDB instruction sets in the `dataset` directory. Since the images utilized in our work are entirely sourced from existing Affective Image Content Analysis datasets, we cannot directly host the actual image files. Therefore, we kindly request that you first download the original datasets to your local machine. The required source datasets include: [Affection](https://affective-explanations.org/),  [Abstract-8](https://www.imageemotion.org/),  [EMOTIC](https://s3.sunai.uoc.edu/emotic/index.html), [Emotion6](http://chenlab.ece.cornell.edu/downloads.html), [FindingEmo](https://gitlab.com/EAVISE/lme/findingemo), [GAPED](https://www.unige.ch/cisa/research/materials-and-online-research/research-material/), [OASIS](https://www.oasis-database.org/).
+
+After downloading, please organize the original image files according to the index relationships specified in `dataset/image_mapping.json`. Once properly configured, you are ready to utilize the comprehensive emotional corpora of EEmoDB.
+
+
+```bash
+dataset
+├── image_mapping.json  # The mapping between images in EEmoDB and the source dataset
+├── QA_data(SFT).json  # The single-image data used by SFT, including the image's refined emotional label
+├── QA_data(pair-SFT).json  # The image pair data used by SFT
+├── EEmoDB-QA
+|   ├── QA_data(conversation_train).json # training data for Stage 1
+|   ├── QA_data(conversation_test).json # test data for Stage 1
+├── EEmoDB-Assess
+|   ├── RL(conversation_train).json # training data for Stage 2
+|   ├── RL(conversation_test).json # test data for Stage 2
+```
+
+## 🎯 Model
+
+We provide a download link for pretrained EEmo-Logic checkpoints on Hugging Face: [https://huggingface.co/Workerred/EEmo-Logic](https://huggingface.co/Workerred/EEmo-Logic).
+
 
 ## 🚀 Inference
 
