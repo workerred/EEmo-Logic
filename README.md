@@ -47,6 +47,22 @@ conda activate eemo-logic
 pip install -r requirements.txt
 ```
 
+## 📖 EEmoDB
+
+EEmoDB comprises two subsets: **EEmoDB-QA**, containing 1.2M instructions generated from 128K single and 355K paired images to cover **perception**, **ranking**, and **description** tasks; and **EEmoDB-Assess**, a curated set of 36K instructions from 25K images, targeting fine-grained emotional assessment.
+
+<div align="center">
+<div style="width: 100%; text-align: center; margin:auto;">
+      <img style="width:100%" src="dataset comparison.png">
+</div>
+</div>
+
+We provide the label annotations for the EEmoDB instruction sets in the `dataset` directory. Since the images utilized in our work are entirely sourced from existing Affective Image Content Analysis datasets, we cannot directly host the actual image files. Therefore, we kindly request that you first download the original datasets to your local machine. The required source datasets include: [Affection](https://affective-explanations.org/),  [Abstract-8](https://www.imageemotion.org/),  [EMOTIC](https://s3.sunai.uoc.edu/emotic/index.html), [Emotion6](http://chenlab.ece.cornell.edu/downloads.html), [FindingEmo](https://gitlab.com/EAVISE/lme/findingemo), [GAPED](https://www.unige.ch/cisa/research/materials-and-online-research/research-material/), [OASIS](https://www.oasis-database.org/).
+
+After downloading, please organize the original image files according to the index relationships specified in `dataset/image_mapping.json`. Once properly configured, you are ready to utilize the comprehensive emotional corpora of EEmoDB.
+
+
+
 ## 🚀 Inference
 
 To facilitate inference, we have refined the label format for the test datasets. You can directly use the JSON files from the [test data](test_data/) folder. For the images, please download them from the open-source version of the original dataset. We conduct testing on both in-domain and cross-domain datasets. The specific procedure is as follows:
