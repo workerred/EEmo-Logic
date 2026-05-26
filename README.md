@@ -7,7 +7,7 @@
 
 <div align="center">
  <div>
-<a href="https://github.com/workerred/EEmo-Logic"><img src="https://img.shields.io/github/stars/workerred/EEmo-Logic"/></a>
+<a href="https://github.com/workerred/EEmo-Logic"><img src="https://img.shields.io/github/stars/workerred/EEmo-Logic?style=social&t=1"/></a>
     <a href="https://arxiv.org/abs/2602.01173"><img src="https://img.shields.io/badge/Arxiv-2602.01173-yellow"/></a>
     <a href="https://huggingface.co/datasets/Workerred/EEmoDB"><img src="https://img.shields.io/badge/Data-EEmoDB-green"></a>
     <a href="https://huggingface.co/Workerred/EEmo-Logic"><img src="https://img.shields.io/badge/Model-EEmo--Logic-blue"></a>
@@ -37,6 +37,13 @@ EEmo-Logic: A Unified Dataset and Multi-Stage Framework for Comprehensive Image-
     </div>   
 <div>
     <sup>* </sup>Equal contribution <sup># </sup>Corresponding author. 
+</div>
+
+<div>
+    <a href="https://arxiv.org/abs/2602.01173"><strong>Paper</strong></a> |
+    <a href="https://github.com/workerred/EEmo-Logic"><strong>Github</strong></a> |
+    <a href="https://huggingface.co/datasets/Workerred/EEmoDB"><strong>Data</strong></a>   |
+    <a href="https://huggingface.co/Workerred/EEmo-Logic"><strong>Model</strong></a>  
 </div>
 </div>
 
@@ -109,6 +116,56 @@ dataset
 
 We provide a download link for pretrained EEmo-Logic checkpoints on Hugging Face: [https://huggingface.co/Workerred/EEmo-Logic](https://huggingface.co/Workerred/EEmo-Logic).
 
+## 🖥️ Training
+
+### Stage 1: LoRA Supervised Fine-Tuning
+
+Trains the vision tower of Qwen2.5-VL with LoRA adapters, keeping the LLM and projector frozen.
+
+```bash
+cd train/Stage_1
+bash scripts/finetune_lora_vision.sh
+bash scripts/merge_lora.sh
+```
+
+> Detailed instructions (path configuration, argument tables, LoRA merging) → [train/Stage_1/README.md](train/Stage_1/README.md)
+
+### Stage 2: Emotion-Aware GRPO Training
+
+Uses the Stage 1 checkpoint as initialization and applies GRPO with an emotion-aware reward matrix built from VAD distances and embedding similarity.
+
+```bash
+cd Stage_2
+bash finetune_grpo.sh
+```
+
+> Detailed instructions (path configuration, reward matrix generation, evaluation) → [train/Stage_2/README.md](train/Stage_2/README.md)
+
+## Pipeline
+
+```
+Qwen2.5-VL-7B-Instruct
+        │
+        ▼
+┌─────────────────────────────┐
+│  Stage 1: LoRA SFT          │
+│  finetune_lora_vision.sh    │
+│  └── Vision tower + LoRA    │
+└──────────────┬──────────────┘
+               │
+        LoRA Checkpoint
+               │
+               ▼
+┌─────────────────────────────┐
+│  Stage 2: Emotion-Aware GRPO│
+│  finetune_grpo.sh           │
+│  └── GRPO with VAD + Embed  │
+│      reward matrix          │
+└──────────────┬──────────────┘
+               │
+               ▼
+         EEmo-Logic
+```
 
 ## 🚀 Inference
 
@@ -168,3 +225,29 @@ Once you have prepared the [AesBench AesE](https://github.com/yipoh/AesBench) an
       python inference/evaluate_AesBench_AesE.py  # AesBench AesE
       python inference/evaluate_ArtEmis_think.py  # UNIAA Sent.
       ```
+
+## Contact
+
+Please contact the first author of this paper for queries.
+
+- Lancheng Gao, `gaolancheng@sjtu.edu.cn`, @workerred
+
+## 📑 Citation
+
+If you find this project useful for your research and applications, please cite using this BibTeX:
+```bibtex
+@article{gao2026eemo,
+  title={EEmo-Logic: A Unified Dataset and Multi-Stage Framework for Comprehensive Image-Evoked Emotion Assessment},
+  author={Gao, Lancheng and Jia, Ziheng and Xing, Zixuan and Sun, Wei and Duan, Huiyu and Zhai, Guangtao and Min, Xiongkuo},
+  journal={arXiv preprint arXiv:2602.01173},
+  year={2026}
+}
+```
+
+## 👍 Acknowledgement
+The codebase of AffectGPT is adapted from [**Qwen2-VL-Finetune**](https://github.com/2U1/Qwen2-VL-Finetune) and [**VideoChat-R1**](https://github.com/OpenGVLab/VideoChat-R1). We are also grateful for their excellent work.
+
+
+## 🔒 License
+
+This project is released under the Apache 2.0 license as found in the LICENSE file. The service is a research preview intended for **non-commercial use ONLY**. Please get in touch with us if you find any potential violations.

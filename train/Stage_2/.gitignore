@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Virtual environment
+venv/
+.venv/
+env/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Training artifacts
+output/
+logs/
+wandb/
+checkpoints/
+*.pt
+*.bin
+*.safetensors
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data (user-managed)
+*.jpg
+*.jpeg
+*.png
+*.mp4
+*.avi
+*.mov
+!framework.png
+
+# Environment
+.env
+.env.local
