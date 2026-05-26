@@ -255,7 +255,7 @@ If you find this project useful for your research and applications, please cite 
 ```
 
 ## 👍 Acknowledgement
-The codebase of AffectGPT is adapted from [**Qwen2-VL-Finetune**](https://github.com/2U1/Qwen2-VL-Finetune) and [**VideoChat-R1**](https://github.com/OpenGVLab/VideoChat-R1). We are also grateful for their excellent work.
+This project is based on [**Qwen2.5-VL-7B-Instruct**](https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct) and the codebase of AffectGPT is adapted from [**Qwen2-VL-Finetune**](https://github.com/2U1/Qwen2-VL-Finetune) and [**VideoChat-R1**](https://github.com/OpenGVLab/VideoChat-R1). We are also grateful for their excellent work.
 
 
 ## 🔒 License
