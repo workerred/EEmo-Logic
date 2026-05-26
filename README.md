@@ -72,7 +72,7 @@ Furthermore, we propose **EEmo-Logic**, an **all-in-one** multimodal large langu
 - [2026/5/26] 🔥 We release the [training script](train) of our EEmo-Logic.
 - [2026/5/25] 🔥 We release the [EEmoDB dataset](https://huggingface.co/datasets/Workerred/EEmoDB) and [EEmo-Logic model](https://huggingface.co/Workerred/EEmo-Logic) at Huggingface.
 - [2026/5/1] 🎉 Our ["EEmo-Logic: A Unified Dataset and Multi-Stage Framework for Comprehensive Image-Evoked Emotion Assessment"](https://arxiv.org/abs/2602.01173) is accepted by **ICML2026 as Spotlight Presentation.**
-- [2026/1/28] 🔥 We release the [inference script](inference).
+- [2026/1/28] 🔥 We release the [inference script](inference) and [test data](test_data).
 
 
 ## 🛠️ Installation
