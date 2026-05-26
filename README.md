@@ -36,7 +36,7 @@ EEmo-Logic: A Unified Dataset and Multi-Stage Framework for Comprehensive Image-
         <sup>1</sup>Shanghai Jiao Tong University,  <sup>2</sup>East China Normal University
     </div>   
 <div>
-    <sup>* </sup>Equal contribution <sup># </sup>Corresponding author. 
+    <sup>* </sup>Equal contribution <sup># </sup>Corresponding author 
 </div>
 
 <div>
@@ -68,12 +68,12 @@ Furthermore, we propose **EEmo-Logic**, an **all-in-one** multimodal large langu
 </div>
 </div>
 
-## 📜TODO
+## 📜 Update
+- [2026/5/26] 🔥 We release the [training script](train) of our EEmo-Logic.
+- [2026/5/25] 🔥 We release the [EEmoDB dataset](https://huggingface.co/datasets/Workerred/EEmoDB) and [EEmo-Logic model](https://huggingface.co/Workerred/EEmo-Logic) at Huggingface.
+- [2026/5/1] 🎉 Our ["EEmo-Logic: A Unified Dataset and Multi-Stage Framework for Comprehensive Image-Evoked Emotion Assessment"](https://arxiv.org/abs/2602.01173) is accepted by **ICML2026 as Spotlight Presentation.**
+- [2026/1/28] 🔥 We release the [inference script](inference).
 
-- [ ] Release the training script
-- [x] Release the EEmo-Logic checkpoint
-- [x] Release the EEmoDB dataset
-- [x] Release the inference script
 
 ## 🛠️ Installation
 
@@ -236,11 +236,21 @@ Please contact the first author of this paper for queries.
 
 If you find this project useful for your research and applications, please cite using this BibTeX:
 ```bibtex
+# EEmo-Logic
 @article{gao2026eemo,
   title={EEmo-Logic: A Unified Dataset and Multi-Stage Framework for Comprehensive Image-Evoked Emotion Assessment},
   author={Gao, Lancheng and Jia, Ziheng and Xing, Zixuan and Sun, Wei and Duan, Huiyu and Zhai, Guangtao and Min, Xiongkuo},
   journal={arXiv preprint arXiv:2602.01173},
   year={2026}
+}
+
+# EEmo-Bench
+@inproceedings{gao2025eemo,
+  title={Eemo-bench: a benchmark for multi-modal large language models on image evoked emotion assessment},
+  author={Gao, Lancheng and Jia, Ziheng and Zeng, Yunhao and Sun, Wei and Zhang, Yiming and Zhou, Wei and Zhai, Guangtao and Min, Xiongkuo},
+  booktitle={Proceedings of the 33rd ACM International Conference on Multimedia},
+  pages={7064--7073},
+  year={2025}
 }
 ```
 
