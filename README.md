@@ -9,8 +9,8 @@
  <div>
 <a href="https://github.com/workerred/EEmo-Logic"><img src="https://img.shields.io/github/stars/workerred/EEmo-Logic"/></a>
     <a href="https://arxiv.org/abs/2602.01173"><img src="https://img.shields.io/badge/Arxiv-2602.01173-yellow"/></a>
-    <a href="https://huggingface.co/datasets/Workerred/EEmo-Bench_single"><img src="https://img.shields.io/badge/Data-EEmoBench_single-green"></a>
-    <a href="https://huggingface.co/datasets/Workerred/EEmo-Bench_pair"><img src="https://img.shields.io/badge/Data-EEmoBench_pair-blue"></a>
+    <a href="https://huggingface.co/datasets/Workerred/EEmoDB"><img src="https://img.shields.io/badge/Data-EEmoDB-green"></a>
+    <a href="https://huggingface.co/Workerred/EEmo-Logic"><img src="https://img.shields.io/badge/Model-EEmo--Logic-blue"></a>
 </div>
 </div>
 
