@@ -226,7 +226,7 @@ Once you have prepared the [AesBench AesE](https://github.com/yipoh/AesBench) an
       python inference/evaluate_ArtEmis_think.py  # UNIAA Sent.
       ```
 
-## Contact
+## 📧 Contact
 
 Please contact the first author of this paper for queries.
 
