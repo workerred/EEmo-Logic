@@ -1,12 +1,44 @@
+
 <div align="center">
 <div style="width: 100%; text-align: center; margin:auto;">
       <img style="width:20%" src="icon.png">
 </div>
 </div>
 
+<div align="center">
+ <div>
+<a href="https://github.com/workerred/EEmo-Logic"><img src="https://img.shields.io/github/stars/workerred/EEmo-Logic"/></a>
+    <a href="https://arxiv.org/abs/2602.01173"><img src="https://img.shields.io/badge/Arxiv-2602.01173-yellow"/></a>
+    <a href="https://huggingface.co/datasets/Workerred/EEmo-Bench_single"><img src="https://img.shields.io/badge/Data-EEmoBench_single-green"></a>
+    <a href="https://huggingface.co/datasets/Workerred/EEmo-Bench_pair"><img src="https://img.shields.io/badge/Data-EEmoBench_pair-blue"></a>
+</div>
+</div>
+
 <h1>
 EEmo-Logic: A Unified Dataset and Multi-Stage Framework for Comprehensive Image-Evoked Emotion Assessment
 </h1>
+
+<div align="center">
+<div>
+    <a href="https://scholar.google.com.hk/citations?hl=zh-CN&user=6KCeFTQAAAAJ&view_op=list_works&gmla=AH8HC4zpp4nUK5A3YmkhcwdHF2O5NwoCsCInYb0SW2ZHWxl-tUMaE_8OISiYvwIAfFSyg033cF7FLxHchO-sedO9qI_fHD0QlzjsiUCAvSc" target="_blank">Lancheng Gao</a><sup>1*</sup>,
+    <a href="https://scholar.google.com/citations?user=JYqad5sAAAAJ&hl=zh-CN" target="_blank">Ziheng Jia</a><sup>1*</sup>,
+    <a href="https://www.linkedin.com/in/%E5%AD%90%E8%BD%A9-%E9%82%A2-8a00743a6/" target="_blank">Zixuan Xing</a><sup>1</sup>,
+   
+</div>
+
+<div>
+      <a href="https://scholar.google.com/citations?hl=zh-CN&user=nDlEBJ8AAAAJ" target="_blank">Wei Sun</a><sup>2</sup>,
+    <a href="https://scholar.google.com/citations?user=r0bRaCMAAAAJ&hl=en" target="_blank">Huiyu Duan</a><sup>2</sup>,
+    <a href="https://ee.sjtu.edu.cn/en/FacultyDetail.aspx?id=24&infoid=153&flag=153" target="_blank">Guangtao Zhai</a><sup>1</sup>,
+    <a href="https://minxiongkuo.github.io/" target="_blank">Xiongkuo Min</a><sup>1</sup><sup>#</sup>
+</div>
+  <div>
+        <sup>1</sup>Shanghai Jiao Tong University,  <sup>2</sup>East China Normal University
+    </div>   
+<div>
+    <sup>* </sup>Equal contribution <sup># </sup>Corresponding author. 
+</div>
+</div>
 
 
 <div align="center">
@@ -32,7 +64,7 @@ Furthermore, we propose **EEmo-Logic**, an **all-in-one** multimodal large langu
 ## 📜TODO
 
 - [ ] Release the training script
-- [ ] Release the EEmo-Logic checkpoint
+- [x] Release the EEmo-Logic checkpoint
 - [x] Release the EEmoDB dataset
 - [x] Release the inference script
 
